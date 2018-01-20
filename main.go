@@ -3,13 +3,14 @@ package main
 import (
 	"flag"
 	"fmt"
-	"icloudphotos/client"
 	"log"
 	"os"
 	"runtime"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/hummerpaskaa/iclouddl/client"
 )
 
 var (

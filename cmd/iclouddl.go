@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
-	client "iclouddl"
 	"log"
 	"os"
 	"strings"
 	"time"
+
+	client "github.com/hummerpaskaa/iclouddl"
 )
 
 var (

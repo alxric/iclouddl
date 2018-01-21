@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-/*PhotoStream will get more detailed info about a specific photo*/
+//PhotoStream will get more detailed info about a specific photo
 func (c *Client) PhotoStream(done <-chan struct{}, in <-chan PhotoDownload, errs chan error, path string) <-chan Downloader {
 	out := make(chan Downloader)
 	go func() {
@@ -87,13 +87,13 @@ func photoURL(details PhotoDetails, pd PhotoDownload) Item {
 	return Item{}
 }
 
-/*Downloader is the struct that will be passed to our download function*/
+//Downloader is the struct that will be passed to our download function
 type Downloader struct {
 	PhotoGUID string
 	Item      Item
 }
 
-/*PhotoDetails contains photo details*/
+//PhotoDetails contains photo details
 type PhotoDetails struct {
 	Locations struct {
 		CvwsIcloudContentCom struct {
@@ -104,7 +104,7 @@ type PhotoDetails struct {
 	Items map[string]Item `json:"items"`
 }
 
-/*Item is URL details for a photo*/
+//Item is URL details for a photo
 type Item struct {
 	URLExpiry   time.Time `json:"url_expiry"`
 	URLLocation string    `json:"url_location"`

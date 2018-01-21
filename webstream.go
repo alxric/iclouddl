@@ -10,7 +10,7 @@ import (
 	"time"
 )
 
-/*WebStream will get the full webstream for the supplied album*/
+//WebStream will get the full webstream for the supplied album
 func (c *Client) WebStream(done <-chan struct{}, errs chan error) <-chan PhotoDownload {
 	out := make(chan PhotoDownload)
 	streamURL := fmt.Sprintf("%s/webstream", c.BaseURL)
@@ -74,13 +74,13 @@ func (c *Client) WebStream(done <-chan struct{}, errs chan error) <-chan PhotoDo
 
 }
 
-/*PhotoDownload is the struct we we will use for downloading*/
+//PhotoDownload is the struct we we will use for downloading
 type PhotoDownload struct {
 	PhotoGUID string
 	Checksum  string
 }
 
-/*Stream contains the entire stream output*/
+//Stream contains the entire stream output
 type Stream struct {
 	StreamCTag    string  `json:"streamCtag"`
 	ItemsReturned string  `json:"itemsReturned"`
@@ -90,7 +90,7 @@ type Stream struct {
 	Photos        []Photo `json:"photos"`
 }
 
-/*Photo describes a single photo*/
+//Photo describes a single photo
 type Photo struct {
 	BatchGUID            string                `json:"batchGuid"`
 	Derivatives          map[string]Derivative `json:"derivatives"`
@@ -105,7 +105,7 @@ type Photo struct {
 	Height               string                `json:"height"`
 }
 
-/*Derivative is the struct we will use to determine which size of the picture to download*/
+//Derivative is the struct we will use to determine which size of the picture to download
 type Derivative struct {
 	FileSize string `json:"fileSize"`
 	Checksum string `json:"checksum"`

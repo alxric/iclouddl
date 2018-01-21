@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-/*Download will download photos to disk*/
+//Download will download photos to disk
 func (c *Client) Download(done <-chan struct{}, in <-chan Downloader, path string) <-chan string {
 	out := make(chan string)
 	go func() {

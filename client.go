@@ -37,7 +37,7 @@ func (c *Client) Do(path string) {
 	var photos []<-chan string
 
 	for i := 0; i < runtime.NumCPU()*10; i++ {
-		photos = append(photos, c.Download(done, c.PhotoStream(done, stream, errs, path), path))
+		photos = append(photos, c.Download(done, c.PhotoStream(done, stream, errs, path), errs, path))
 	}
 
 	downloads := merge(done, photos...)

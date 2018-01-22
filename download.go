@@ -9,7 +9,7 @@ import (
 )
 
 //Download will download photos to disk
-func (c *Client) Download(done <-chan struct{}, in <-chan Downloader, path string) <-chan string {
+func (c *Client) Download(done <-chan struct{}, in <-chan Downloader, errs chan error, path string) <-chan string {
 	out := make(chan string)
 	go func() {
 		defer close(out)
@@ -18,7 +18,11 @@ func (c *Client) Download(done <-chan struct{}, in <-chan Downloader, path strin
 			if p.PhotoGUID != "" && p.Item.URLPath != "" {
 				dlURL := fmt.Sprintf("https://%s%s", p.Item.URLLocation, p.Item.URLPath)
 				path := fmt.Sprintf("%s/%s.%s", path, p.PhotoGUID, fileName(dlURL))
-				dl(dlURL, path)
+				err := dl(dlURL, path)
+				if err != nil {
+					errs <- err
+					return
+				}
 				output = path
 			}
 			select {

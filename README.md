@@ -8,17 +8,17 @@ go get github.com/hummerpaskaa/iclouddl
 
 Example usage
 ---
-  package main
+    package main
 
-  import (
-      client "github.com/hummerpaskaa/iclouddl"
-  )
+    import (
+        client "github.com/hummerpaskaa/iclouddl"
+    )
 
-  func main() 
-      c, err := client.New("a251EQWOqz9e2jqx")
-      if err != nil {
-          return
-      }
+    func main() 
+        c, err := client.New("a251EQWOqz9e2jqx")
+        if err != nil {
+            return
+        }
 
-      c.Do("/tmp/pictures")
-  }
+        c.Do("/tmp/pictures")
+    }
